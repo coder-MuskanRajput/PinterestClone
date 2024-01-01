@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const plm = require("passport-local-mongoose");
+
 mongoose.connect("mongodb://127.0.0.1:27017/UserPinterest")
 
 const userSchema = new mongoose.Schema({
@@ -9,9 +11,11 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
   },
-  posts:[],
+  posts:[{
+    type : mongoose.Schema.Types.ObjectId,
+    ref :"Post"
+  }],
   dp: {
     type: String, // Assuming the display picture is stored as a string (file path, URL, etc.).
   },
@@ -26,6 +30,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.plugin(plm);
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
