@@ -147,3 +147,16 @@ hr {
   text-decoration: none;
   color: black;
 }
+.error{
+  font-weight: 500;
+  color: red;
+  text-transform: capitalize;
+  margin: 7px 0;
+}
+.bgImage {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}

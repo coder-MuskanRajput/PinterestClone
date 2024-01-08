@@ -1,13 +1,10 @@
-*
-{
+*{
   margin: 0;
   padding: 0;
 	background-color: #262626;
   box-sizing: border-box;
-  font-family: "Gill Sans", "Gill Sans MT", "Myriad          Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
+  font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial,        "sans-serif";
 }
-
-
 nav{
 	display: flex;
 	justify-content: space-around;
