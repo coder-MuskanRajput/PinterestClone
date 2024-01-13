@@ -76,3 +76,6 @@ body{
     background-color: #cdc8c8;
     border-radius: 50px;
   }
+  .profile-picture{
+    background-color: grey;
+  }
