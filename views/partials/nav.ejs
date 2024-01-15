@@ -1,36 +1,20 @@
-<div class="nav">
-
-    <h3>Pinterest</h3>
-    <div class="route">
-        <a href="/">Profile</a>
-        <a href="#">Feed</a>
-        <a class="logout" href="/logout">Logout</a>
-    </div>
-</div>
-
-<style>
-    .nav{
-        width: 100%;
-        padding : 20px ;
-        /* padding-left: 10px; */
-        display: flex;
-        justify-content: space-between;
-        background-color: gray;
-        color: black;
-    }
-    .route{
-        display: flex;
-        gap: 15px;
-        align-items: center;
-    }
-    .logout{
-        padding: 5px 10px;
-        background-color: red;
-        color: white;
-        border-radius: 10px;
-    }
-    a:link , a:visited{
-        text-decoration: none;
-        color: white;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+     <div class="w-full px-10 py-3 flex justify-between bg-zinc-800 text-white">
+        <h3>Pinterest</h3>
+        <div class="flex gap-10 items-center" > 
+            <a href="/profile">Profile</a>
+            <a href="/feed">Feed</a>
+            <a class="px-3 py-2 bg-red-700 text-white  rounded-lg" href="/logout">Logout</a>
+        </div>
+     </div>
+    
+</body>
+</html>

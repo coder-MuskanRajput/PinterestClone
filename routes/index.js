@@ -20,10 +20,12 @@ router.get('/login', function (req, res, next) {
   res.render('login', { error : req.flash("error") });
 });
 
-router.get("/feed" , function(req,res,next){
-  res.render("feed")
+router.get("/feed" , isLoggedIn, async function(req,res,next){
+ const user = await userModel.findOne({ username : req.session.passport.user})
+ const posts = await postModel.find()
+ .populate("user")
+  res.render("feed" , {user,posts})
 })
-
 
 router.post("/upload" , isLoggedIn, upload.single("file"),async function(req,res,next){
   if(!req.file){
@@ -33,6 +35,7 @@ router.post("/upload" , isLoggedIn, upload.single("file"),async function(req,res
     const post = await postModel.create({
     image : req.file.filename,
     imageText : req.body.fileCaption,
+    description : req.body.description,
     user : user._id
  })
    user.posts.push(post._id);
@@ -48,12 +51,19 @@ router.get('/profile', isLoggedIn,async function (req, res, next) {
   res.render("profile", {user})
 });
 
-router.get('/addPost', isLoggedIn,async function (req, res, next) {
+router.get('/show/posts', isLoggedIn,async function (req, res, next) {
   const user =  await userModel.findOne({
          username : req.session.passport.user
   }).populate("posts")
   console.log(user);
- res.render("profile", {user})
+ res.render("show", {user})
+});
+ 
+router.get('/addPost', isLoggedIn,async function (req, res, next) {
+  const user =  await userModel.findOne({
+         username : req.session.passport.user
+  })
+  res.render("add", {user})
 });
 
 

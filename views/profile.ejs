@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
     rel="stylesheet"
@@ -29,30 +30,26 @@
         </div>
         <h2 class="name"><%=user.fullName %></h2>
         <h3 class="username">@<%= user.username%></h3>
-        <p class="tagline">Lorem ipsum dolor sit amet consectetur.</p>
-        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident.</p>
-        <a href="/edit" class="button">Edit Profile</a>
+        <!-- <p class="tagline">Lorem ipsum dolor sit amet consectetur.</p> -->
+        <!-- <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident.</p> -->
+        <!-- <a href="#" class="button">Edit Profile</a> -->
 
         <a href="/addPost" class="button">Add New Post</a>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-          <input type="text" name="fileCaption" placeholder="Some Captions">
-          <input type="file" name="file">
-          <input type="submit">
-        </form>
       </div>
     </div>
     <div class="container">
       <div class="cards flex" >
-        <% user.posts .forEach(function(post){ %>
           
       <div class="card" style="width: 18rem;">
-        <img src="/images/uploads/<%= post.image %>" class="card-img-top" alt="...">
+        <img src="/images/uploads/<%= user?.posts[0]?.image %>" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><%= post.imageText%></h5>
+          <a href="/show/posts" class="card-title text-black">Your Uploaded Pins</a>
+          <br>
+          <p><%= user.posts.length %> Pins</p>
+          
         </div>
       </div>
-      <% })%>
     </div>
 
     </div>
